@@ -10,7 +10,8 @@ export default function Profile() {
             <ProfileHeader />
             {/* <ProfileDetails /> */}
             {/* <Buildings /> */}
-            {/* <Venues/> */}
+            {/* <Users /> */}
+            <Venues />
         </div>
     );
 }

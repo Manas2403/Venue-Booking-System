@@ -1,12 +1,13 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
+import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import DeleteIcon from "@mui/icons-material/Delete";
-export default function DeleteModal({ open, setOpen }) {
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import DomainAddIcon from "@mui/icons-material/DomainAdd";
+export default function AddBuilding({ open, setOpen }) {
     const handleClose = () => {
         setOpen(false);
     };
@@ -18,13 +19,19 @@ export default function DeleteModal({ open, setOpen }) {
                 maxWidth={"sm"}
                 fullWidth={true}
             >
+                <DialogTitle className="text-lg font-semibold text-dark-300">
+                    Add a new Building <DomainAddIcon />
+                </DialogTitle>
                 <DialogContent>
-                    <DialogContentText
-                        id="alert-dialog-description"
-                        className="text-lg font-semibold text-dark-300"
-                    >
-                        Are you sure you want to delete ?
-                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Name of Building"
+                        type="email"
+                        fullWidth
+                        variant="outlined"
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Button
@@ -38,9 +45,8 @@ export default function DeleteModal({ open, setOpen }) {
                         onClick={handleClose}
                         variant="outlined"
                         className="text-md"
-                        autoFocus
                     >
-                        Confirm
+                        Add
                     </Button>
                 </DialogActions>
             </Dialog>
