@@ -1,14 +1,11 @@
-import { useState } from "react";
+import * as React from "react";
+import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-
-export default function EditProfile({ open, setOpen }) {
+export default function DeleteModal({ open, setOpen }) {
     const handleClose = () => {
         setOpen(false);
     };
@@ -20,19 +17,11 @@ export default function EditProfile({ open, setOpen }) {
                 maxWidth={"sm"}
                 fullWidth={true}
             >
-                <DialogTitle className="text-lg font-semibold text-dark-300">
-                    Edit Profile <EditIcon />
-                </DialogTitle>
+                <DialogTitle id="alert-dialog-title">{"Delete"}</DialogTitle>
                 <DialogContent>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Name"
-                        type="email"
-                        fullWidth
-                        variant="outlined"
-                    />
+                    <DialogContentText id="alert-dialog-description">
+                        Are you sure you want to delete ?
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button
@@ -46,8 +35,9 @@ export default function EditProfile({ open, setOpen }) {
                         onClick={handleClose}
                         variant="outlined"
                         className="text-md"
+                        autoFocus
                     >
-                        Save Changes
+                        Confirm
                     </Button>
                 </DialogActions>
             </Dialog>
